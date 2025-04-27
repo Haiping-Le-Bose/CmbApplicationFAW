@@ -1,0 +1,32 @@
+I use ubuntu to build this project.
+CMB-2.0.2 is CMB release in M5 Release.
+I just use CMake and prebuilt_HYP710 to build cmb application so we don't need cart-tools any more.
+
+[Prerequisite]
+1 
+cp /home/haiping/work/BOSE/prebuilt_HYP710/target/qnx7/aarch64le/lib/libsocket.so.3  /home/haiping/work/BOSE/prebuilt_HYP710/target/qnx7/aarch64le/lib/libsocketv3.so
+
+2
+haiping@ubuntu:~/work/BOSE/CmbApplication/lib$ 
+cp libdalconfig-sa8295p_adp_air_v1.0.1.so /home/haiping/work/BOSE/prebuilt_HYP710/target/qnx7/aarch64le/lib/
+cd /home/haiping/work/BOSE/prebuilt_HYP710/target/qnx7/aarch64le/lib/
+ln -s libdalconfig-sa8295p_adp_air_v1.0.1.so libdalconfig.so.1
+ln -s libdalconfig.so.1 libdalconfig.so
+
+3   
+I have changed CMB-2.0.2/include/CMB_OSAL.h
+Look at my change by searching Haiping
+
+4
+All the source files under src folder shoule be synchronized with official relase, except main.c
+
+
+[build]
+step 1
+source ~/work/BOSE/prebuilt_HYP710/qnxsdp-env.sh
+
+step 2
+mkdir build
+cd build
+cmake ..
+make

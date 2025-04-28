@@ -91,17 +91,14 @@ include_directories(include/BTF)
 include_directories(include/CART/include)
 include_directories(include/CART/Runtime/CMB)
 
-
-link_directories(CMB-2.0.2/dll)
-link_directories(lib)
-link_directories(${QNX_TARGET}/aarch64le/lib)
+link_directories(CMB-2.0.2/dll lib)
 
 add_executable(${PROJECT_NAME} src/main.c
                                src/CMB_Framework_config.cpp
                                src/CMB_Framework.c
                                )
 target_link_libraries(${PROJECT_NAME} csd2IpcClient slog2 audio_log_util OSAbstraction libstd asound
-ams2 pmem_client ssr tzbsplib diag_lsm dalconfig
+ams2 pmem_client ssr tzbsplib diag_lsm
 Cmb_dll
 Adaptor_Common
 IOA_Adaptor

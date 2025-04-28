@@ -22,9 +22,11 @@
 #define CMB_OSAL__INCLUDED_
 
 // Windows specific Process ID information requires
-// Haiping comments this line because i will build the CMB application in ubuntu OS, we don't need build for windows.
-//#include "processthreadsapi.h"
- 
+// [Haiping] To avid include this header when building in Linux.
+#ifdef _WIN32
+#include "processthreadsapi.h"
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
